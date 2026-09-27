@@ -503,22 +503,32 @@ customer.username ||
 "Customer";
 
 
-/* Product */
+/*
+============================================
+PRODUCT / SOFTWARE
+Backend me field "software" hai.
+Admin Panel me jo software set hoga,
+wahi Customer Dashboard par dikhega.
+============================================
+*/
+
+const softwareName =
+customer.software ||
+customer.product ||
+customer.productName ||
+"DruvaSolution Software";
+
 
 document.getElementById(
 "productName"
 ).textContent =
-customer.product ||
-customer.productName ||
-"DruvaSolution Software";
+softwareName;
 
 
 document.getElementById(
 "licenseProduct"
 ).textContent =
-customer.product ||
-customer.productName ||
-"DruvaSolution Software";
+softwareName;
 
 
 /* Email */
