@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin Panel | DruvaSolution</title><link rel="stylesheet" href="styles.css">
+<style>
+.admin{display:flex;min-height:75vh;background:#f4f7fb}.admin-side{width:240px;background:#062b58;color:white;padding:25px 15px}.admin-side h2{margin:0 10px 25px}.admin-side a{display:block;padding:13px 14px;margin:4px 0;border-radius:7px;color:white}.admin-side a.active,.admin-side a:hover{background:#0879f9}.admin-main{flex:1;padding:30px}.admin-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.admin-top h1{margin:0}.admin-user{background:#fff;padding:10px 15px;border-radius:8px}.admin-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.a-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 4px 18px #12304d12}.a-card .num{font-size:30px;font-weight:800;color:#0879f9}.a-card small{color:#65738a}.panel{background:#fff;border-radius:12px;margin-top:22px;padding:22px;box-shadow:0 4px 18px #12304d12}.panel h2{margin-top:0}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px;border-bottom:1px solid #e5eaf1;text-align:left;font-size:14px}.status{padding:5px 9px;border-radius:20px;background:#dff7e9;color:#10894b;font-size:12px;font-weight:bold}.action{border:0;background:#0879f9;color:#fff;padding:7px 10px;border-radius:5px;cursor:pointer}.logout{background:#ff4b16!important;color:white!important;padding:10px 15px!important;border-radius:7px!important;font-weight:bold}
+@media(max-width:850px){.admin-side{width:190px}.admin-cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.admin{display:block}.admin-side{width:100%;display:flex;overflow:auto;gap:4px}.admin-side h2{display:none}.admin-side a{white-space:nowrap}.admin-main{padding:18px}.admin-cards{grid-template-columns:1fr}.table{min-width:650px}.panel{overflow:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand"><div class="logo">DS</div><div><b>Druva<span>Solution</span></b><small>Business Software Solutions</small></div></div><div class="contact-top"><span>✉ info@druvasolution.com</span><a class="login" href="index.html">View Website</a></div></header>
+<section class="admin">
+<aside class="admin-side">
+<h2>DS Admin</h2>
+<a class="active" href="admin.html">📊 Dashboard</a>
+<a href="#">👥 Customers</a>
+<a href="#">💻 Software</a>
+<a href="#">🔑 Licenses</a>
+<a href="#">⬇ Downloads</a>
+<a href="#">🎫 Support Tickets</a>
+<a href="#">🧾 Orders</a>
+<a href="#">⚙ Settings</a>
+<a class="logout" href="index.html">Logout</a>
+</aside>
+<main class="admin-main">
+<div class="admin-top"><div><p class="eyebrow">DRUVASOLUTION ADMIN</p><h1>Dashboard</h1></div><div class="admin-user">👤 Administrator</div></div>
+<div class="admin-cards">
+<div class="a-card"><div class="num">128</div><small>Total Customers</small></div>
+<div class="a-card"><div class="num">5</div><small>Software Products</small></div>
+<div class="a-card"><div class="num">96</div><small>Active Licenses</small></div>
+<div class="a-card"><div class="num">7</div><small>Open Support Tickets</small></div>
+</div>
+<div class="panel"><h2>Recent Customers</h2>
+<table class="table"><thead><tr><th>Customer</th><th>Product</th><th>License</th><th>Status</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>ABC Logistics</td><td>Courier Billing Software</td><td>CR-10025</td><td><span class="status">Active</span></td><td><button class="action">View</button></td></tr>
+<tr><td>XYZ Traders</td><td>Billing & Invoice Software</td><td>BI-10026</td><td><span class="status">Active</span></td><td><button class="action">View</button></td></tr>
+<tr><td>Om Enterprises</td><td>Inventory Management</td><td>IM-10027</td><td><span class="status">Active</span></td><td><button class="action">View</button></td></tr>
+</tbody></table></div>
+<div class="panel"><h2>Quick Actions</h2>
+<a class="btn primary" href="#">+ Add Customer</a>
+<a class="btn primary" href="#">+ Add Software</a>
+<a class="btn primary" href="#">+ Create License</a>
+<a class="btn outline" href="#">View Support Tickets</a>
+</div>
+</main></section>
+<div class="copyright">© 2026 DruvaSolution. Admin Panel</div>
+</body></html>

@@ -1,0 +1,1 @@
+document.querySelectorAll(".whats button").forEach(b=>b.addEventListener("click",()=>alert("WhatsApp number will be connected here. Please replace the placeholder number in the website.")));
