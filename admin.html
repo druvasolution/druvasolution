@@ -1,49 +1,1778 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Admin Panel | DruvaSolution</title><link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DruvaSolution Admin Panel</title>
+
 <style>
-.admin{display:flex;min-height:75vh;background:#f4f7fb}.admin-side{width:240px;background:#062b58;color:white;padding:25px 15px}.admin-side h2{margin:0 10px 25px}.admin-side a{display:block;padding:13px 14px;margin:4px 0;border-radius:7px;color:white}.admin-side a.active,.admin-side a:hover{background:#0879f9}.admin-main{flex:1;padding:30px}.admin-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.admin-top h1{margin:0}.admin-user{background:#fff;padding:10px 15px;border-radius:8px}.admin-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.a-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 4px 18px #12304d12}.a-card .num{font-size:30px;font-weight:800;color:#0879f9}.a-card small{color:#65738a}.panel{background:#fff;border-radius:12px;margin-top:22px;padding:22px;box-shadow:0 4px 18px #12304d12}.panel h2{margin-top:0}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px;border-bottom:1px solid #e5eaf1;text-align:left;font-size:14px}.status{padding:5px 9px;border-radius:20px;background:#dff7e9;color:#10894b;font-size:12px;font-weight:bold}.action{border:0;background:#0879f9;color:#fff;padding:7px 10px;border-radius:5px;cursor:pointer}.logout{background:#ff4b16!important;color:white!important;padding:10px 15px!important;border-radius:7px!important;font-weight:bold}
-@media(max-width:850px){.admin-side{width:190px}.admin-cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.admin{display:block}.admin-side{width:100%;display:flex;overflow:auto;gap:4px}.admin-side h2{display:none}.admin-side a{white-space:nowrap}.admin-main{padding:18px}.admin-cards{grid-template-columns:1fr}.table{min-width:650px}.panel{overflow:auto}}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f3f6fb;
+    color:#1e293b;
+}
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#062b58,#0b5ed7);
+}
+
+.login-box{
+    width:390px;
+    background:#fff;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.login-logo{
+    width:60px;
+    height:60px;
+    border-radius:14px;
+    background:#0b5ed7;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+    margin:0 auto 15px;
+}
+
+.login-box h1{
+    text-align:center;
+    margin-bottom:8px;
+}
+
+.login-box p{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+    font-size:14px;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d5dce7;
+    border-radius:8px;
+    margin-bottom:16px;
+    font-size:14px;
+    outline:none;
+}
+
+input:focus,select:focus{
+    border-color:#0b5ed7;
+}
+
+button{
+    border:0;
+    border-radius:8px;
+    padding:11px 18px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-primary{
+    background:#0b5ed7;
+    color:white;
+}
+
+.btn-success{
+    background:#198754;
+    color:white;
+}
+
+.btn-danger{
+    background:#dc3545;
+    color:white;
+}
+
+.btn-secondary{
+    background:#64748b;
+    color:white;
+}
+
+.login-btn{
+    width:100%;
+    padding:13px;
+    font-size:16px;
+}
+
+.error{
+    color:#dc3545;
+    background:#fff0f0;
+    padding:10px;
+    border-radius:7px;
+    margin-bottom:15px;
+    display:none;
+}
+
+.admin-page{
+    display:none;
+    min-height:100vh;
+}
+
+.topbar{
+    height:70px;
+    background:#062b58;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 28px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-logo{
+    width:42px;
+    height:42px;
+    background:#fff;
+    color:#0b5ed7;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.brand h2{
+    font-size:20px;
+}
+
+.brand small{
+    display:block;
+    opacity:.75;
+}
+
+.logout{
+    background:#dc3545;
+    color:#fff;
+}
+
+.content{
+    padding:25px;
+    max-width:1400px;
+    margin:auto;
+}
+
+.page-title{
+    margin-bottom:20px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.stat{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.stat h3{
+    font-size:28px;
+    margin-top:8px;
+}
+
+.stat span{
+    color:#64748b;
+    font-size:14px;
+}
+
+.panel{
+    background:white;
+    padding:22px;
+    border-radius:12px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+    margin-bottom:25px;
+}
+
+.panel-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:950px;
+}
+
+th,td{
+    padding:12px 10px;
+    border-bottom:1px solid #e8edf4;
+    text-align:left;
+    font-size:13px;
+}
+
+th{
+    background:#f5f8fc;
+    font-size:12px;
+    text-transform:uppercase;
+}
+
+.status{
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.active{
+    background:#d1e7dd;
+    color:#146c43;
+}
+
+.inactive{
+    background:#f8d7da;
+    color:#842029;
+}
+
+.actions{
+    display:flex;
+    gap:6px;
+}
+
+.actions button{
+    padding:7px 10px;
+    font-size:12px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
+}
+
+.modal-box{
+    background:white;
+    width:650px;
+    max-width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    border-radius:15px;
+    padding:25px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close{
+    background:#eee;
+    font-size:18px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-group input,
+.form-group select{
+    margin-bottom:0;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+}
+
+.checkbox input{
+    width:auto;
+    margin:0;
+}
+
+.modal-footer{
+    margin-top:22px;
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+}
+
+.message{
+    padding:10px;
+    border-radius:7px;
+    margin-bottom:15px;
+    display:none;
+}
+
+.success-msg{
+    background:#d1e7dd;
+    color:#146c43;
+}
+
+.error-msg{
+    background:#f8d7da;
+    color:#842029;
+}
+
+@media(max-width:800px){
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .topbar{
+        padding:0 15px;
+    }
+
+    .content{
+        padding:15px;
+    }
+}
+
+@media(max-width:500px){
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .brand small{
+        display:none;
+    }
+}
 </style>
 </head>
+
 <body>
-<header class="top"><div class="brand"><div class="logo">DS</div><div><b>Druva<span>Solution</span></b><small>Business Software Solutions</small></div></div><div class="contact-top"><span>✉ info@druvasolution.com</span><a class="login" href="index.html">View Website</a></div></header>
-<section class="admin">
-<aside class="admin-side">
-<h2>DS Admin</h2>
-<a class="active" href="admin.html">📊 Dashboard</a>
-<a href="#">👥 Customers</a>
-<a href="#">💻 Software</a>
-<a href="#">🔑 Licenses</a>
-<a href="#">⬇ Downloads</a>
-<a href="#">🎫 Support Tickets</a>
-<a href="#">🧾 Orders</a>
-<a href="#">⚙ Settings</a>
-<a class="logout" href="index.html">Logout</a>
-</aside>
-<main class="admin-main">
-<div class="admin-top"><div><p class="eyebrow">DRUVASOLUTION ADMIN</p><h1>Dashboard</h1></div><div class="admin-user">👤 Administrator</div></div>
-<div class="admin-cards">
-<div class="a-card"><div class="num">128</div><small>Total Customers</small></div>
-<div class="a-card"><div class="num">5</div><small>Software Products</small></div>
-<div class="a-card"><div class="num">96</div><small>Active Licenses</small></div>
-<div class="a-card"><div class="num">7</div><small>Open Support Tickets</small></div>
+
+<!-- ================= LOGIN ================= -->
+
+<div id="loginPage" class="login-page">
+
+    <div class="login-box">
+
+        <div class="login-logo">DS</div>
+
+        <h1>Admin Login</h1>
+
+        <p>DruvaSolution Administration</p>
+
+        <div id="loginError" class="error"></div>
+
+        <label>Admin Username</label>
+        <input
+            type="text"
+            id="adminUsername"
+            placeholder="Enter admin username"
+            autocomplete="username"
+        >
+
+        <label>Admin Password</label>
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter admin password"
+            autocomplete="current-password"
+        >
+
+        <button
+            class="btn-primary login-btn"
+            onclick="adminLogin()"
+        >
+            LOGIN
+        </button>
+
+    </div>
+
 </div>
-<div class="panel"><h2>Recent Customers</h2>
-<table class="table"><thead><tr><th>Customer</th><th>Product</th><th>License</th><th>Status</th><th>Action</th></tr></thead>
-<tbody>
-<tr><td>ABC Logistics</td><td>Courier Billing Software</td><td>CR-10025</td><td><span class="status">Active</span></td><td><button class="action">View</button></td></tr>
-<tr><td>XYZ Traders</td><td>Billing & Invoice Software</td><td>BI-10026</td><td><span class="status">Active</span></td><td><button class="action">View</button></td></tr>
-<tr><td>Om Enterprises</td><td>Inventory Management</td><td>IM-10027</td><td><span class="status">Active</span></td><td><button class="action">View</button></td></tr>
-</tbody></table></div>
-<div class="panel"><h2>Quick Actions</h2>
-<a class="btn primary" href="#">+ Add Customer</a>
-<a class="btn primary" href="#">+ Add Software</a>
-<a class="btn primary" href="#">+ Create License</a>
-<a class="btn outline" href="#">View Support Tickets</a>
+
+
+<!-- ================= ADMIN PAGE ================= -->
+
+<div id="adminPage" class="admin-page">
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                DS
+            </div>
+
+            <div>
+                <h2>DruvaSolution</h2>
+                <small>Admin Panel</small>
+            </div>
+
+        </div>
+
+        <button
+            class="logout"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+    <main class="content">
+
+        <div class="page-title">
+            <h1>Dashboard</h1>
+            <p style="color:#64748b;margin-top:5px;">
+                Manage your customers, licenses and software.
+            </p>
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat">
+                <span>Total Customers</span>
+                <h3 id="totalCustomers">0</h3>
+            </div>
+
+            <div class="stat">
+                <span>Active Customers</span>
+                <h3 id="activeCustomers">0</h3>
+            </div>
+
+            <div class="stat">
+                <span>Inactive Customers</span>
+                <h3 id="inactiveCustomers">0</h3>
+            </div>
+
+            <div class="stat">
+                <span>Software Customers</span>
+                <h3 id="softwareCustomers">0</h3>
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOMER LIST -->
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>Customers</h2>
+                    <p style="color:#64748b;margin-top:4px;">
+                        Customer accounts and license information
+                    </p>
+                </div>
+
+                <button
+                    class="btn-success"
+                    onclick="openAddCustomer()"
+                >
+                    + Add Customer
+                </button>
+
+            </div>
+
+            <div id="listMessage" class="message"></div>
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Software</th>
+                            <th>License Key</th>
+                            <th>Expiry</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="customerTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
 </div>
-</main></section>
-<div class="copyright">© 2026 DruvaSolution. Admin Panel</div>
-</body></html>
+
+
+<!-- ================= CUSTOMER MODAL ================= -->
+
+<div id="customerModal" class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                Add Customer
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="formMessage" class="message"></div>
+
+
+        <input
+            type="hidden"
+            id="customerId"
+        >
+
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label>Customer Name *</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Customer name"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Email *</label>
+                <input
+                    type="email"
+                    id="customerEmail"
+                    placeholder="customer@email.com"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Username *</label>
+                <input
+                    type="text"
+                    id="customerUsername"
+                    placeholder="Username"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="customerPassword"
+                    placeholder="Password"
+                >
+            </div>
+
+
+            <div class="form-group full">
+                <label>Software / Product</label>
+
+                <input
+                    type="text"
+                    id="customerSoftware"
+                    value="Courier Billing Software"
+                    placeholder="Software name"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>License Key</label>
+
+                <input
+                    type="text"
+                    id="customerLicense"
+                    placeholder="Auto generated if blank"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Expiry Date</label>
+
+                <input
+                    type="date"
+                    id="customerExpiry"
+                >
+            </div>
+
+
+            <div class="form-group full">
+
+                <label class="checkbox">
+
+                    <input
+                        type="checkbox"
+                        id="customerActive"
+                        checked
+                    >
+
+                    Customer Active
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                class="btn-secondary"
+                onclick="closeModal()"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="btn-primary"
+                onclick="saveCustomer()"
+            >
+                Save Customer
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ============================================
+   API CONFIGURATION
+============================================ */
+
+const API_URL =
+    "https://druvasolution-backend.onrender.com";
+
+
+let adminToken =
+    localStorage.getItem("druvasolution_admin_token");
+
+let customers = [];
+
+let editingCustomerId = null;
+
+
+/* ============================================
+   PAGE START
+============================================ */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        if(adminToken){
+
+            showAdminPage();
+
+            loadCustomers();
+
+        }
+
+    }
+);
+
+
+/* ============================================
+   ADMIN LOGIN
+============================================ */
+
+async function adminLogin(){
+
+    const username =
+        document
+        .getElementById("adminUsername")
+        .value
+        .trim();
+
+    const password =
+        document
+        .getElementById("adminPassword")
+        .value;
+
+    const errorBox =
+        document
+        .getElementById("loginError");
+
+
+    errorBox.style.display =
+        "none";
+
+
+    if(!username || !password){
+
+        showLoginError(
+            "Please enter username and password."
+        );
+
+        return;
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "/api/admin/login",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+                        username,
+                        password
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.message ||
+                "Admin login failed."
+            );
+
+        }
+
+
+        adminToken =
+            data.token;
+
+
+        localStorage.setItem(
+            "druvasolution_admin_token",
+            adminToken
+        );
+
+
+        showAdminPage();
+
+        loadCustomers();
+
+
+    }catch(error){
+
+        showLoginError(
+            error.message
+        );
+
+    }
+
+}
+
+
+function showLoginError(message){
+
+    const box =
+        document.getElementById(
+            "loginError"
+        );
+
+    box.innerText =
+        message;
+
+    box.style.display =
+        "block";
+
+}
+
+
+/* ============================================
+   SHOW ADMIN PAGE
+============================================ */
+
+function showAdminPage(){
+
+    document.getElementById(
+        "loginPage"
+    ).style.display =
+        "none";
+
+    document.getElementById(
+        "adminPage"
+    ).style.display =
+        "block";
+
+}
+
+
+/* ============================================
+   LOGOUT
+============================================ */
+
+function logout(){
+
+    localStorage.removeItem(
+        "druvasolution_admin_token"
+    );
+
+    adminToken =
+        null;
+
+    location.reload();
+
+}
+
+
+/* ============================================
+   LOAD CUSTOMERS
+============================================ */
+
+async function loadCustomers(){
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "/api/admin/customers",
+                {
+                    headers:{
+                        "Authorization":
+                            "Bearer " +
+                            adminToken
+                    }
+                }
+            );
+
+
+        if(response.status === 401){
+
+            logout();
+
+            return;
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.message ||
+                "Unable to load customers."
+            );
+
+        }
+
+
+        customers =
+            data.customers || [];
+
+
+        renderCustomers();
+
+        updateStats();
+
+
+    }catch(error){
+
+        showListMessage(
+            error.message,
+            true
+        );
+
+    }
+
+}
+
+
+/* ============================================
+   RENDER CUSTOMER TABLE
+============================================ */
+
+function renderCustomers(){
+
+    const table =
+        document.getElementById(
+            "customerTable"
+        );
+
+
+    table.innerHTML = "";
+
+
+    if(customers.length === 0){
+
+        table.innerHTML = `
+            <tr>
+                <td colspan="8"
+                    style="text-align:center;padding:30px;">
+                    No customers found.
+                </td>
+            </tr>
+        `;
+
+        return;
+
+    }
+
+
+    customers.forEach(
+        function(customer){
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>
+                    <strong>
+                        ${escapeHtml(
+                            customer.name || ""
+                        )}
+                    </strong>
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        customer.email || ""
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        customer.username || ""
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        customer.software ||
+                        "DruvaSolution Software"
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        customer.licenseKey || "-"
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        customer.expiryDate || "-"
+                    )}
+                </td>
+
+                <td>
+
+                    ${
+                        customer.active
+                        ?
+                        `<span class="status active">
+                            ACTIVE
+                         </span>`
+                        :
+                        `<span class="status inactive">
+                            INACTIVE
+                         </span>`
+                    }
+
+                </td>
+
+                <td>
+
+                    <div class="actions">
+
+                        <button
+                            class="btn-primary"
+                            onclick="editCustomer('${customer.id}')"
+                        >
+                            Edit
+                        </button>
+
+                        <button
+                            class="btn-danger"
+                            onclick="deleteCustomer('${customer.id}')"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+                </td>
+
+            `;
+
+
+            table.appendChild(row);
+
+        }
+    );
+
+}
+
+
+/* ============================================
+   STATS
+============================================ */
+
+function updateStats(){
+
+    const total =
+        customers.length;
+
+
+    const active =
+        customers.filter(
+            c => c.active
+        ).length;
+
+
+    const inactive =
+        customers.filter(
+            c => !c.active
+        ).length;
+
+
+    const software =
+        customers.filter(
+            c => c.software
+        ).length;
+
+
+    document.getElementById(
+        "totalCustomers"
+    ).innerText =
+        total;
+
+
+    document.getElementById(
+        "activeCustomers"
+    ).innerText =
+        active;
+
+
+    document.getElementById(
+        "inactiveCustomers"
+    ).innerText =
+        inactive;
+
+
+    document.getElementById(
+        "softwareCustomers"
+    ).innerText =
+        software;
+
+}
+
+
+/* ============================================
+   ADD CUSTOMER
+============================================ */
+
+function openAddCustomer(){
+
+    editingCustomerId =
+        null;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).innerText =
+        "Add Customer";
+
+
+    clearCustomerForm();
+
+
+    document.getElementById(
+        "customerActive"
+    ).checked =
+        true;
+
+
+    document.getElementById(
+        "customerModal"
+    ).style.display =
+        "flex";
+
+}
+
+
+/* ============================================
+   EDIT CUSTOMER
+============================================ */
+
+function editCustomer(id){
+
+    const customer =
+        customers.find(
+            c => c.id === id
+        );
+
+
+    if(!customer){
+
+        alert(
+            "Customer not found."
+        );
+
+        return;
+
+    }
+
+
+    editingCustomerId =
+        id;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).innerText =
+        "Edit Customer";
+
+
+    document.getElementById(
+        "customerId"
+    ).value =
+        customer.id || "";
+
+
+    document.getElementById(
+        "customerName"
+    ).value =
+        customer.name || "";
+
+
+    document.getElementById(
+        "customerEmail"
+    ).value =
+        customer.email || "";
+
+
+    document.getElementById(
+        "customerUsername"
+    ).value =
+        customer.username || "";
+
+
+    document.getElementById(
+        "customerPassword"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "customerSoftware"
+    ).value =
+        customer.software ||
+        "Courier Billing Software";
+
+
+    document.getElementById(
+        "customerLicense"
+    ).value =
+        customer.licenseKey || "";
+
+
+    document.getElementById(
+        "customerExpiry"
+    ).value =
+        customer.expiryDate || "";
+
+
+    document.getElementById(
+        "customerActive"
+    ).checked =
+        customer.active !== false;
+
+
+    clearFormMessage();
+
+
+    document.getElementById(
+        "customerModal"
+    ).style.display =
+        "flex";
+
+}
+
+
+/* ============================================
+   SAVE CUSTOMER
+============================================ */
+
+async function saveCustomer(){
+
+    const name =
+        document.getElementById(
+            "customerName"
+        ).value.trim();
+
+
+    const email =
+        document.getElementById(
+            "customerEmail"
+        ).value.trim();
+
+
+    const username =
+        document.getElementById(
+            "customerUsername"
+        ).value.trim();
+
+
+    const password =
+        document.getElementById(
+            "customerPassword"
+        ).value;
+
+
+    const software =
+        document.getElementById(
+            "customerSoftware"
+        ).value.trim();
+
+
+    const licenseKey =
+        document.getElementById(
+            "customerLicense"
+        ).value.trim();
+
+
+    const expiryDate =
+        document.getElementById(
+            "customerExpiry"
+        ).value;
+
+
+    const active =
+        document.getElementById(
+            "customerActive"
+        ).checked;
+
+
+    if(!name || !email || !username){
+
+        showFormMessage(
+            "Name, email and username are required.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    if(!editingCustomerId &&
+       !password){
+
+        showFormMessage(
+            "Password is required for a new customer.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    const payload = {
+
+        name,
+        email,
+        username,
+        software,
+        licenseKey,
+        expiryDate,
+        active
+
+    };
+
+
+    if(password){
+
+        payload.password =
+            password;
+
+    }
+
+
+    try{
+
+        let url =
+            API_URL +
+            "/api/admin/customers";
+
+
+        let method =
+            "POST";
+
+
+        if(editingCustomerId){
+
+            url +=
+                "/" +
+                editingCustomerId;
+
+            method =
+                "PUT";
+
+        }
+
+
+        const response =
+            await fetch(
+                url,
+                {
+                    method,
+
+                    headers:{
+                        "Content-Type":
+                            "application/json",
+
+                        "Authorization":
+                            "Bearer " +
+                            adminToken
+                    },
+
+                    body:
+                        JSON.stringify(
+                            payload
+                        )
+                }
+            );
+
+
+        if(response.status === 401){
+
+            logout();
+
+            return;
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.message ||
+                "Unable to save customer."
+            );
+
+        }
+
+
+        showFormMessage(
+            editingCustomerId
+                ? "Customer updated successfully."
+                : "Customer created successfully.",
+            false
+        );
+
+
+        setTimeout(
+            function(){
+
+                closeModal();
+
+                loadCustomers();
+
+            },
+            700
+        );
+
+
+    }catch(error){
+
+        showFormMessage(
+            error.message,
+            true
+        );
+
+    }
+
+}
+
+
+/* ============================================
+   DELETE CUSTOMER
+============================================ */
+
+async function deleteCustomer(id){
+
+    const customer =
+        customers.find(
+            c => c.id === id
+        );
+
+
+    if(!customer){
+
+        return;
+
+    }
+
+
+    const confirmed =
+        confirm(
+            "Delete customer \"" +
+            customer.name +
+            "\"?\n\nThis action cannot be undone."
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "/api/admin/customers/" +
+                id,
+                {
+                    method:"DELETE",
+
+                    headers:{
+                        "Authorization":
+                            "Bearer " +
+                            adminToken
+                    }
+                }
+            );
+
+
+        if(response.status === 401){
+
+            logout();
+
+            return;
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                data.message ||
+                "Unable to delete customer."
+            );
+
+        }
+
+
+        showListMessage(
+            "Customer deleted successfully.",
+            false
+        );
+
+
+        loadCustomers();
+
+
+    }catch(error){
+
+        showListMessage(
+            error.message,
+            true
+        );
+
+    }
+
+}
+
+
+/* ============================================
+   MODAL
+============================================ */
+
+function closeModal(){
+
+    document.getElementById(
+        "customerModal"
+    ).style.display =
+        "none";
+
+    editingCustomerId =
+        null;
+
+}
+
+
+function clearCustomerForm(){
+
+    document.getElementById(
+        "customerId"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "customerName"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "customerEmail"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "customerUsername"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "customerPassword"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "customerSoftware"
+    ).value =
+        "Courier Billing Software";
+
+
+    document.getElementById(
+        "customerLicense"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "customerExpiry"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "customerActive"
+    ).checked =
+        true;
+
+
+    clearFormMessage();
+
+}
+
+
+/* ============================================
+   MESSAGES
+============================================ */
+
+function showFormMessage(
+    message,
+    isError
+){
+
+    const box =
+        document.getElementById(
+            "formMessage"
+        );
+
+
+    box.innerText =
+        message;
+
+
+    box.className =
+        "message " +
+        (
+            isError
+            ? "error-msg"
+            : "success-msg"
+        );
+
+
+    box.style.display =
+        "block";
+
+}
+
+
+function clearFormMessage(){
+
+    const box =
+        document.getElementById(
+            "formMessage"
+        );
+
+    box.style.display =
+        "none";
+
+}
+
+
+function showListMessage(
+    message,
+    isError
+){
+
+    const box =
+        document.getElementById(
+            "listMessage"
+        );
+
+
+    box.innerText =
+        message;
+
+
+    box.className =
+        "message " +
+        (
+            isError
+            ? "error-msg"
+            : "success-msg"
+        );
+
+
+    box.style.display =
+        "block";
+
+
+    setTimeout(
+        function(){
+
+            box.style.display =
+                "none";
+
+        },
+        3000
+    );
+
+}
+
+
+/* ============================================
+   HTML SECURITY
+============================================ */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* ============================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+============================================ */
+
+document.getElementById(
+    "customerModal"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            this
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
