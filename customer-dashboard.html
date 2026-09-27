@@ -3,28 +3,660 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Customer Dashboard | DruvaSolution</title>
+
 <link rel="stylesheet" href="styles.css">
+
 <style>
-.portal{padding:45px 5%;background:#f5f9ff;min-height:68vh}.portal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.portal-head h1{margin:0}.logout{background:#ff4b16;color:#fff;padding:10px 17px;border-radius:7px;font-weight:bold}
-.portal-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.portal-card{background:#fff;border-radius:14px;padding:23px;box-shadow:0 5px 22px #12304d12;border:1px solid #e1e8f2}.portal-card .big{font-size:35px}.portal-card h3{margin:10px 0}.portal-card p{color:#637087;font-size:14px;line-height:1.5}.portal-card a{display:inline-block;margin-top:8px;background:#0879f9;color:#fff;padding:9px 13px;border-radius:7px;font-size:13px;font-weight:bold}
-.license{margin-top:22px;background:#062b58;color:#fff;border-radius:14px;padding:24px}.license-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.license small{color:#bcd0e8}.license b{display:block;margin-top:4px}
-@media(max-width:800px){.portal-cards{grid-template-columns:repeat(2,1fr)}.license-grid{grid-template-columns:1fr}.portal-head{gap:15px;align-items:flex-start;flex-direction:column}}@media(max-width:500px){.portal-cards{grid-template-columns:1fr}}
+.portal{
+    padding:45px 5%;
+    background:#f5f9ff;
+    min-height:68vh;
+}
+
+.portal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.portal-head h1{
+    margin:5px 0;
+}
+
+.portal-head p{
+    color:#68758a;
+}
+
+.portal-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.portal-card{
+    background:#fff;
+    border-radius:14px;
+    padding:23px;
+    box-shadow:0 8px 25px #09264a12;
+}
+
+.portal-card h3{
+    margin:8px 0;
+}
+
+.portal-card p{
+    color:#68758a;
+    font-size:14px;
+}
+
+.big{
+    font-size:28px;
+    font-weight:800;
+}
+
+.license{
+    margin-top:22px;
+    background:#062b58;
+    color:#fff;
+    border-radius:14px;
+    padding:24px;
+}
+
+.license-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-top:18px;
+}
+
+.license-item{
+    background:#ffffff12;
+    padding:15px;
+    border-radius:10px;
+}
+
+.license-item small{
+    display:block;
+    opacity:.75;
+    margin-bottom:5px;
+}
+
+.license-item strong{
+    font-size:15px;
+    word-break:break-word;
+}
+
+.status-active{
+    color:#21d07a;
+    font-weight:800;
+}
+
+.status-inactive{
+    color:#ff7070;
+    font-weight:800;
+}
+
+.dashboard-actions{
+    margin-top:25px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.logout-btn{
+    border:0;
+    cursor:pointer;
+}
+
+.message{
+    padding:15px;
+    border-radius:10px;
+    background:#fff3cd;
+    color:#664d03;
+    margin-bottom:20px;
+    display:none;
+}
+
+@media(max-width:800px){
+    .portal-cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .license-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .portal-head{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+}
+
+@media(max-width:520px){
+    .portal-cards,
+    .license-grid{
+        grid-template-columns:1fr;
+    }
+}
 </style>
+
 </head>
+
 <body>
-<header class="top"><div class="brand"><div class="logo">DS</div><div><b>Druva<span>Solution</span></b><small>Business Software Solutions</small></div></div><div class="contact-top"><span>💬 WhatsApp</span><span>✉ info@druvasolution.com</span></div></header>
-<nav><a href="index.html">Home</a><a href="software.html">Our Software</a><a href="contact.html">Support</a><a class="buy" href="login.html">Logout</a></nav>
-<section class="portal">
-<div class="portal-head"><div><p class="eyebrow">CUSTOMER PORTAL</p><h1>Welcome to DruvaSolution</h1><p>Manage your software and support from one place.</p></div><a class="logout" href="login.html">Logout</a></div>
-<div class="portal-cards">
-<div class="portal-card"><div class="big">⬇️</div><h3>Software Download</h3><p>Download your licensed DruvaSolution software and updates.</p><a href="#">Download</a></div>
-<div class="portal-card"><div class="big">🔑</div><h3>License</h3><p>View license number, product and activation information.</p><a href="#">View License</a></div>
-<div class="portal-card"><div class="big">🛠️</div><h3>Support</h3><p>Get help with installation, software and technical issues.</p><a href="contact.html">Contact Support</a></div>
-<div class="portal-card"><div class="big">📄</div><h3>Invoices</h3><p>View your purchase invoices and account documents.</p><a href="#">View Invoices</a></div>
+
+<header class="top">
+
+<div class="brand">
+
+<div class="logo">DS</div>
+
+<div>
+<b>Druva<span>Solution</span></b>
+<small>Business Software Solutions</small>
 </div>
-<div class="license"><h2>Current License</h2><div class="license-grid"><div><small>Product</small><b>Courier Billing Software</b></div><div><small>License Status</small><b>Active</b></div><div><small>License Key</small><b>XXXX-XXXX-XXXX-XXXX</b></div></div></div>
+
+</div>
+
+<div class="contact-top">
+<span>📞 +91 XXXXX XXXXX</span>
+<span>💬 WhatsApp</span>
+<span>✉ info@druvasolution.com</span>
+</div>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="software.html">Our Software</a>
+
+<a href="contact.html">Support</a>
+
+<a href="pricing.html">Pricing</a>
+
+<a href="login.html">Customer Login</a>
+
+</nav>
+
+
+<section class="portal">
+
+<div id="message" class="message"></div>
+
+
+<div class="portal-head">
+
+<div>
+
+<p class="eyebrow">CUSTOMER PORTAL</p>
+
+<h1>Welcome, <span id="customerName">Customer</span></h1>
+
+<p>
+Manage your DruvaSolution software, license and account information.
+</p>
+
+</div>
+
+<div>
+
+<button id="logoutBtn" class="btn primary logout-btn">
+Logout
+</button>
+
+</div>
+
+</div>
+
+
+<div class="portal-cards">
+
+
+<div class="portal-card">
+
+<div class="big">💻</div>
+
+<h3>Software</h3>
+
+<p id="productName">
+Loading...
+</p>
+
+</div>
+
+
+<div class="portal-card">
+
+<div class="big">🔑</div>
+
+<h3>License</h3>
+
+<p id="licenseStatus">
+Loading...
+</p>
+
+</div>
+
+
+<div class="portal-card">
+
+<div class="big">📅</div>
+
+<h3>Expiry Date</h3>
+
+<p id="expiryDate">
+Loading...
+</p>
+
+</div>
+
+
+<div class="portal-card">
+
+<div class="big">✉️</div>
+
+<h3>Email</h3>
+
+<p id="customerEmail">
+Loading...
+</p>
+
+</div>
+
+</div>
+
+
+<div class="license">
+
+<h2>License Information</h2>
+
+<p>
+Your DruvaSolution customer license details.
+</p>
+
+
+<div class="license-grid">
+
+
+<div class="license-item">
+
+<small>Customer Name</small>
+
+<strong id="licenseCustomerName">
+Loading...
+</strong>
+
+</div>
+
+
+<div class="license-item">
+
+<small>Product</small>
+
+<strong id="licenseProduct">
+Loading...
+</strong>
+
+</div>
+
+
+<div class="license-item">
+
+<small>License Key</small>
+
+<strong id="licenseKey">
+Loading...
+</strong>
+
+</div>
+
+
+<div class="license-item">
+
+<small>Status</small>
+
+<strong id="licenseStatusDetail">
+Loading...
+</strong>
+
+</div>
+
+
+<div class="license-item">
+
+<small>Expiry Date</small>
+
+<strong id="licenseExpiry">
+Loading...
+</strong>
+
+</div>
+
+
+<div class="license-item">
+
+<small>Email</small>
+
+<strong id="licenseEmail">
+Loading...
+</strong>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="dashboard-actions">
+
+<a href="software.html" class="btn primary">
+💻 View Software
+</a>
+
+<a href="contact.html" class="btn">
+📞 Contact Support
+</a>
+
+</div>
+
+
 </section>
-<footer><div><div class="footer-brand">Druva<span>Solution</span></div><p>Business Software Solutions</p></div><div><h4>Quick Links</h4><a href="index.html">Home</a><a href="software.html">Our Software</a></div><div><h4>Support</h4><a href="contact.html">Contact Us</a></div><div><h4>Contact</h4><p>📞 +91 XXXXX XXXXX</p><p>✉ info@druvasolution.com</p></div></footer>
-<div class="copyright">© 2026 DruvaSolution. All Rights Reserved.</div>
-</body></html>
+
+
+<footer>
+
+<div>
+
+<div class="footer-brand">
+Druva<span>Solution</span>
+</div>
+
+<p>Business Software Solutions</p>
+
+</div>
+
+
+<div>
+
+<h4>Quick Links</h4>
+
+<a href="index.html">Home</a>
+<a href="software.html">Our Software</a>
+<a href="pricing.html">Pricing</a>
+
+</div>
+
+
+<div>
+
+<h4>Support</h4>
+
+<a href="contact.html">Contact Us</a>
+<a href="#">User Guide</a>
+<a href="#">Download</a>
+
+</div>
+
+
+<div>
+
+<h4>Contact Info</h4>
+
+<p>📞 +91 XXXXX XXXXX</p>
+<p>✉ info@druvasolution.com</p>
+
+</div>
+
+</footer>
+
+
+<div class="copyright">
+
+© 2026 DruvaSolution. All Rights Reserved.
+
+</div>
+
+
+<script>
+
+const API_BASE_URL =
+"https://druvasolution-backend.onrender.com";
+
+
+const token =
+localStorage.getItem("druvaToken");
+
+
+const message =
+document.getElementById("message");
+
+
+/* Login nahi hai to login page par bhejo */
+
+if(!token){
+
+window.location.href = "login.html";
+
+}
+
+
+/* Customer information load */
+
+async function loadCustomer(){
+
+try{
+
+const response =
+await fetch(API_BASE_URL + "/api/me",{
+
+method:"GET",
+
+headers:{
+"Authorization":"Bearer " + token
+}
+
+});
+
+
+const data =
+await response.json();
+
+
+if(!response.ok){
+
+throw new Error(
+data.message || "Unable to load customer information."
+);
+
+}
+
+
+const customer =
+data.customer || data;
+
+
+/* Customer Name */
+
+document.getElementById(
+"customerName"
+).textContent =
+customer.name ||
+customer.fullName ||
+customer.username ||
+"Customer";
+
+
+document.getElementById(
+"licenseCustomerName"
+).textContent =
+customer.name ||
+customer.fullName ||
+customer.username ||
+"Customer";
+
+
+/* Product */
+
+document.getElementById(
+"productName"
+).textContent =
+customer.product ||
+customer.productName ||
+"DruvaSolution Software";
+
+
+document.getElementById(
+"licenseProduct"
+).textContent =
+customer.product ||
+customer.productName ||
+"DruvaSolution Software";
+
+
+/* Email */
+
+document.getElementById(
+"customerEmail"
+).textContent =
+customer.email ||
+customer.username ||
+"-";
+
+
+document.getElementById(
+"licenseEmail"
+).textContent =
+customer.email ||
+customer.username ||
+"-";
+
+
+/* License Key */
+
+document.getElementById(
+"licenseKey"
+).textContent =
+customer.licenseKey ||
+customer.license ||
+"Not Assigned";
+
+
+/* Expiry */
+
+const expiry =
+customer.expiryDate ||
+customer.expiry ||
+customer.licenseExpiry ||
+"-";
+
+
+document.getElementById(
+"expiryDate"
+).textContent = expiry;
+
+
+document.getElementById(
+"licenseExpiry"
+).textContent = expiry;
+
+
+/* Status */
+
+const status =
+customer.active === false
+? "Inactive"
+: customer.status || "Active";
+
+
+document.getElementById(
+"licenseStatus"
+).textContent = status;
+
+
+const statusElement =
+document.getElementById(
+"licenseStatusDetail"
+);
+
+
+statusElement.textContent = status;
+
+
+if(
+status.toLowerCase() === "active"
+){
+
+statusElement.className =
+"status-active";
+
+}else{
+
+statusElement.className =
+"status-inactive";
+
+}
+
+
+}catch(error){
+
+console.error(error);
+
+
+/* Token invalid/expired */
+
+if(
+error.message.toLowerCase().includes("token") ||
+error.message.toLowerCase().includes("unauthorized")
+){
+
+localStorage.removeItem("druvaToken");
+localStorage.removeItem("druvaCustomer");
+
+window.location.href = "login.html";
+
+return;
+
+}
+
+
+message.style.display = "block";
+
+message.textContent =
+"Unable to load customer information. Please try login again.";
+
+}
+
+}
+
+
+/* Logout */
+
+document.getElementById(
+"logoutBtn"
+).addEventListener("click",function(){
+
+localStorage.removeItem("druvaToken");
+
+localStorage.removeItem("druvaCustomer");
+
+window.location.href =
+"login.html";
+
+});
+
+
+loadCustomer();
+
+</script>
+
+
+</body>
+</html>
