@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,6 +10,7 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
+
 .portal{
     padding:45px 5%;
     background:#f5f9ff;
@@ -122,6 +124,7 @@
 }
 
 @media(max-width:800px){
+
     .portal-cards{
         grid-template-columns:repeat(2,1fr);
     }
@@ -134,37 +137,63 @@
         align-items:flex-start;
         flex-direction:column;
     }
+
 }
 
 @media(max-width:520px){
+
     .portal-cards,
     .license-grid{
         grid-template-columns:1fr;
     }
+
 }
+
 </style>
 
 </head>
 
+
 <body>
+
 
 <header class="top">
 
 <div class="brand">
 
-<div class="logo">DS</div>
+<div class="logo">
+DS
+</div>
 
 <div>
-<b>Druva<span>Solution</span></b>
-<small>Business Software Solutions</small>
+
+<b>
+Druva<span>Solution</span>
+</b>
+
+<small>
+Business Software Solutions
+</small>
+
 </div>
 
 </div>
+
 
 <div class="contact-top">
-<span>📞 +91 XXXXX XXXXX</span>
-<span>💬 WhatsApp</span>
-<span>✉ info@druvasolution.com</span>
+
+<span>
+📞 +91 XXXXX XXXXX
+</span>
+
+<span>
+💬 WhatsApp
+</span>
+
+<span>
+✉ info@druvasolution.com
+</span>
+
 </div>
 
 </header>
@@ -172,20 +201,31 @@
 
 <nav>
 
-<a href="index.html">Home</a>
+<a href="index.html">
+Home
+</a>
 
-<a href="software.html">Our Software</a>
+<a href="software.html">
+Our Software
+</a>
 
-<a href="contact.html">Support</a>
+<a href="contact.html">
+Support
+</a>
 
-<a href="pricing.html">Pricing</a>
+<a href="pricing.html">
+Pricing
+</a>
 
-<a href="login.html">Customer Login</a>
+<a href="login.html">
+Customer Login
+</a>
 
 </nav>
 
 
 <section class="portal">
+
 
 <div id="message" class="message"></div>
 
@@ -194,9 +234,16 @@
 
 <div>
 
-<p class="eyebrow">CUSTOMER PORTAL</p>
+<p class="eyebrow">
+CUSTOMER PORTAL
+</p>
 
-<h1>Welcome, <span id="customerName">Customer</span></h1>
+<h1>
+Welcome,
+<span id="customerName">
+Customer
+</span>
+</h1>
 
 <p>
 Manage your DruvaSolution software, license and account information.
@@ -204,10 +251,15 @@ Manage your DruvaSolution software, license and account information.
 
 </div>
 
+
 <div>
 
-<button id="logoutBtn" class="btn primary logout-btn">
+<button
+id="logoutBtn"
+class="btn primary logout-btn">
+
 Logout
+
 </button>
 
 </div>
@@ -215,14 +267,21 @@ Logout
 </div>
 
 
+
 <div class="portal-cards">
 
 
+<!-- SOFTWARE -->
+
 <div class="portal-card">
 
-<div class="big">💻</div>
+<div class="big">
+💻
+</div>
 
-<h3>Software</h3>
+<h3>
+Software
+</h3>
 
 <p id="productName">
 Loading...
@@ -231,11 +290,18 @@ Loading...
 </div>
 
 
+
+<!-- LICENSE -->
+
 <div class="portal-card">
 
-<div class="big">🔑</div>
+<div class="big">
+🔑
+</div>
 
-<h3>License</h3>
+<h3>
+License
+</h3>
 
 <p id="licenseStatus">
 Loading...
@@ -244,11 +310,18 @@ Loading...
 </div>
 
 
+
+<!-- EXPIRY -->
+
 <div class="portal-card">
 
-<div class="big">📅</div>
+<div class="big">
+📅
+</div>
 
-<h3>Expiry Date</h3>
+<h3>
+Expiry Date
+</h3>
 
 <p id="expiryDate">
 Loading...
@@ -257,11 +330,18 @@ Loading...
 </div>
 
 
+
+<!-- EMAIL -->
+
 <div class="portal-card">
 
-<div class="big">✉️</div>
+<div class="big">
+✉️
+</div>
 
-<h3>Email</h3>
+<h3>
+Email
+</h3>
 
 <p id="customerEmail">
 Loading...
@@ -269,12 +349,18 @@ Loading...
 
 </div>
 
+
 </div>
 
 
+
+<!-- LICENSE INFORMATION -->
+
 <div class="license">
 
-<h2>License Information</h2>
+<h2>
+License Information
+</h2>
 
 <p>
 Your DruvaSolution customer license details.
@@ -284,9 +370,13 @@ Your DruvaSolution customer license details.
 <div class="license-grid">
 
 
+<!-- CUSTOMER NAME -->
+
 <div class="license-item">
 
-<small>Customer Name</small>
+<small>
+Customer Name
+</small>
 
 <strong id="licenseCustomerName">
 Loading...
@@ -295,9 +385,14 @@ Loading...
 </div>
 
 
+
+<!-- PRODUCT -->
+
 <div class="license-item">
 
-<small>Product</small>
+<small>
+Product
+</small>
 
 <strong id="licenseProduct">
 Loading...
@@ -306,9 +401,14 @@ Loading...
 </div>
 
 
+
+<!-- LICENSE KEY -->
+
 <div class="license-item">
 
-<small>License Key</small>
+<small>
+License Key
+</small>
 
 <strong id="licenseKey">
 Loading...
@@ -317,9 +417,14 @@ Loading...
 </div>
 
 
+
+<!-- STATUS -->
+
 <div class="license-item">
 
-<small>Status</small>
+<small>
+Status
+</small>
 
 <strong id="licenseStatusDetail">
 Loading...
@@ -328,9 +433,14 @@ Loading...
 </div>
 
 
+
+<!-- EXPIRY -->
+
 <div class="license-item">
 
-<small>Expiry Date</small>
+<small>
+Expiry Date
+</small>
 
 <strong id="licenseExpiry">
 Loading...
@@ -339,9 +449,14 @@ Loading...
 </div>
 
 
+
+<!-- EMAIL -->
+
 <div class="license-item">
 
-<small>Email</small>
+<small>
+Email
+</small>
 
 <strong id="licenseEmail">
 Loading...
@@ -355,14 +470,26 @@ Loading...
 </div>
 
 
+
+<!-- ACTIONS -->
+
 <div class="dashboard-actions">
 
-<a href="software.html" class="btn primary">
+<a
+href="software.html"
+class="btn primary">
+
 💻 View Software
+
 </a>
 
-<a href="contact.html" class="btn">
+
+<a
+href="contact.html"
+class="btn">
+
 📞 Contact Support
+
 </a>
 
 </div>
@@ -371,51 +498,91 @@ Loading...
 </section>
 
 
+
+<!-- FOOTER -->
+
 <footer>
+
 
 <div>
 
 <div class="footer-brand">
+
 Druva<span>Solution</span>
-</div>
-
-<p>Business Software Solutions</p>
 
 </div>
+
+<p>
+Business Software Solutions
+</p>
+
+</div>
+
 
 
 <div>
 
-<h4>Quick Links</h4>
+<h4>
+Quick Links
+</h4>
 
-<a href="index.html">Home</a>
-<a href="software.html">Our Software</a>
-<a href="pricing.html">Pricing</a>
+<a href="index.html">
+Home
+</a>
+
+<a href="software.html">
+Our Software
+</a>
+
+<a href="pricing.html">
+Pricing
+</a>
 
 </div>
+
 
 
 <div>
 
-<h4>Support</h4>
+<h4>
+Support
+</h4>
 
-<a href="contact.html">Contact Us</a>
-<a href="#">User Guide</a>
-<a href="#">Download</a>
+<a href="contact.html">
+Contact Us
+</a>
+
+<a href="#">
+User Guide
+</a>
+
+<a href="#">
+Download
+</a>
 
 </div>
+
 
 
 <div>
 
-<h4>Contact Info</h4>
+<h4>
+Contact Info
+</h4>
 
-<p>📞 +91 XXXXX XXXXX</p>
-<p>✉ info@druvasolution.com</p>
+<p>
+📞 +91 XXXXX XXXXX
+</p>
+
+<p>
+✉ info@druvasolution.com
+</p>
 
 </div>
+
 
 </footer>
+
 
 
 <div class="copyright">
@@ -425,92 +592,128 @@ Druva<span>Solution</span>
 </div>
 
 
+
 <script>
+
+
+/* =========================================
+   API
+========================================= */
 
 const API_BASE_URL =
 "https://druvasolution-backend.onrender.com";
 
 
+
+/* =========================================
+   CUSTOMER TOKEN
+========================================= */
+
 const token =
 localStorage.getItem("druvaToken");
 
+
+
+/* =========================================
+   MESSAGE
+========================================= */
 
 const message =
 document.getElementById("message");
 
 
-/* Login nahi hai to login page par bhejo */
+
+/* =========================================
+   LOGIN CHECK
+========================================= */
 
 if(!token){
 
-window.location.href = "login.html";
+window.location.href =
+"login.html";
 
 }
 
 
-/* Customer information load */
+
+/* =========================================
+   LOAD CUSTOMER
+========================================= */
 
 async function loadCustomer(){
 
 try{
 
+
+/* API REQUEST */
+
 const response =
-await fetch(API_BASE_URL + "/api/me",{
+await fetch(
+API_BASE_URL + "/api/me",
+{
+    method:"GET",
 
-method:"GET",
-
-headers:{
-"Authorization":"Bearer " + token
+    headers:{
+        "Authorization":
+        "Bearer " + token
+    }
 }
+);
 
-});
 
+
+/* RESPONSE */
 
 const data =
 await response.json();
 
 
+
+/* ERROR CHECK */
+
 if(!response.ok){
 
 throw new Error(
-data.message || "Unable to load customer information."
+data.message ||
+"Unable to load customer information."
 );
 
 }
+
 
 
 const customer =
 data.customer || data;
 
 
-/* Customer Name */
 
-document.getElementById(
-"customerName"
-).textContent =
+/* =========================================
+   CUSTOMER NAME
+========================================= */
+
+const customerName =
 customer.name ||
 customer.fullName ||
 customer.username ||
 "Customer";
+
+
+document.getElementById(
+"customerName"
+).textContent =
+customerName;
 
 
 document.getElementById(
 "licenseCustomerName"
 ).textContent =
-customer.name ||
-customer.fullName ||
-customer.username ||
-"Customer";
+customerName;
 
 
-/*
-============================================
-PRODUCT / SOFTWARE
-Backend me field "software" hai.
-Admin Panel me jo software set hoga,
-wahi Customer Dashboard par dikhega.
-============================================
-*/
+
+/* =========================================
+   SOFTWARE
+========================================= */
 
 const softwareName =
 customer.software ||
@@ -531,35 +734,50 @@ document.getElementById(
 softwareName;
 
 
-/* Email */
+
+/* =========================================
+   EMAIL
+========================================= */
+
+const email =
+customer.email ||
+customer.username ||
+"-";
+
 
 document.getElementById(
 "customerEmail"
 ).textContent =
-customer.email ||
-customer.username ||
-"-";
+email;
 
 
 document.getElementById(
 "licenseEmail"
 ).textContent =
-customer.email ||
-customer.username ||
-"-";
+email;
 
 
-/* License Key */
 
-document.getElementById(
-"licenseKey"
-).textContent =
+/* =========================================
+   LICENSE KEY
+========================================= */
+
+const licenseKey =
 customer.licenseKey ||
 customer.license ||
 "Not Assigned";
 
 
-/* Expiry */
+document.getElementById(
+"licenseKey"
+).textContent =
+licenseKey;
+
+
+
+/* =========================================
+   EXPIRY DATE
+========================================= */
 
 const expiry =
 customer.expiryDate ||
@@ -568,17 +786,59 @@ customer.licenseExpiry ||
 "-";
 
 
+/*
+   Database se agar:
+   2027-12-31T00:00:00.000Z
+
+   aaye to dashboard par:
+   2027-12-31
+
+   dikhega.
+*/
+
+let formattedExpiry =
+expiry;
+
+
+if(expiry !== "-"){
+
+const date =
+new Date(expiry);
+
+
+if(!Number.isNaN(
+date.getTime()
+)){
+
+formattedExpiry =
+date.toISOString()
+.slice(0,10);
+
+}
+
+}
+
+
+/* Top Expiry Date */
+
 document.getElementById(
 "expiryDate"
-).textContent = expiry;
+).textContent =
+formattedExpiry;
 
+
+/* License Information Expiry */
 
 document.getElementById(
 "licenseExpiry"
-).textContent = expiry;
+).textContent =
+formattedExpiry;
 
 
-/* Status */
+
+/* =========================================
+   LICENSE STATUS
+========================================= */
 
 const status =
 customer.active === false
@@ -586,10 +846,15 @@ customer.active === false
 : customer.status || "Active";
 
 
+/* Top License Status */
+
 document.getElementById(
 "licenseStatus"
-).textContent = status;
+).textContent =
+status;
 
+
+/* License Information Status */
 
 const statusElement =
 document.getElementById(
@@ -597,8 +862,14 @@ document.getElementById(
 );
 
 
-statusElement.textContent = status;
+statusElement.textContent =
+status;
 
+
+
+/* =========================================
+   STATUS COLOR
+========================================= */
 
 if(
 status.toLowerCase() === "active"
@@ -617,53 +888,98 @@ statusElement.className =
 
 }catch(error){
 
+
+/* Console */
+
 console.error(error);
 
 
-/* Token invalid/expired */
+
+/* =========================================
+   TOKEN ERROR
+========================================= */
 
 if(
-error.message.toLowerCase().includes("token") ||
-error.message.toLowerCase().includes("unauthorized")
+error.message
+.toLowerCase()
+.includes("token")
+||
+error.message
+.toLowerCase()
+.includes("unauthorized")
 ){
 
-localStorage.removeItem("druvaToken");
-localStorage.removeItem("druvaCustomer");
 
-window.location.href = "login.html";
+localStorage.removeItem(
+"druvaToken"
+);
+
+localStorage.removeItem(
+"druvaCustomer"
+);
+
+
+window.location.href =
+"login.html";
+
 
 return;
 
 }
 
 
-message.style.display = "block";
+
+/* =========================================
+   GENERAL ERROR
+========================================= */
+
+message.style.display =
+"block";
+
 
 message.textContent =
 "Unable to load customer information. Please try login again.";
 
-}
 
 }
 
+}
 
-/* Logout */
+
+
+/* =========================================
+   LOGOUT
+========================================= */
 
 document.getElementById(
 "logoutBtn"
-).addEventListener("click",function(){
+).addEventListener(
+"click",
+function(){
 
-localStorage.removeItem("druvaToken");
+localStorage.removeItem(
+"druvaToken"
+);
 
-localStorage.removeItem("druvaCustomer");
+localStorage.removeItem(
+"druvaCustomer"
+);
+
 
 window.location.href =
 "login.html";
 
-});
+}
+);
 
+
+
+/* =========================================
+   START
+========================================= */
 
 loadCustomer();
+
 
 </script>
 
